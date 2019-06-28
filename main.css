@@ -1,0 +1,29 @@
+body{
+    background-color:#262626;
+}
+
+.navbar{
+    background-color:#404040;
+}
+
+#Title{
+    color:#cccccc;
+    font-size:35px;
+}
+
+#icon-image{
+    height:40px;
+    padding-top:5px;
+    padding-bottom:5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#image-container{
+    height:40px;
+    width:40px;
+    border-radius:20px;
+    background-color:#007bff;
+}
+
