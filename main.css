@@ -1,0 +1,137 @@
+body{
+    background-color:#262626;
+}
+
+.navbar {
+    height:60px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.navbar-hide {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.navbar-brand{
+    margin-left:15px;
+}
+
+.nav-item{
+    padding-left:10px;
+    padding-right:10px;
+}
+
+#Title{
+    color:#cccccc;
+    font-size:35px;
+}
+
+#icon-image{
+    height:40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#image-container{
+    height:40px;
+    width:40px;
+    border-radius:20px;
+}
+
+.homepage-content-wrapper{
+    padding-top:50px;
+    padding-bottom:70px;
+}
+
+.homepage-main-body{
+    padding-top:100px;
+}
+
+.homepage-text{
+    max-width:600px;
+}
+
+.homepage-body > .main-title{
+    font-size:50px;
+    padding-bottom: 10px;
+}
+
+.homepage-body > .subtitle{
+    font-size:20px;
+}
+
+.main-body-text{
+    color:#e5e5e5;
+}
+
+.main-body-button{
+    width:150px;
+    height:45px;
+}
+
+#main-image{
+    max-width:400px;
+}
+
+.homepage-explore{
+    padding-top:200px;
+}
+
+.explore-subtext{
+    font-size:40px;
+    text-align:center;
+}
+
+.card{
+    background-color:#cccccc;
+    height:400px;
+}
+
+.card-img-top{
+    max-width:150px;
+    padding-top:10px;
+}
+
+.card-title{
+    font-size:35px;
+    color:#262626;
+    text-align:center;
+}
+
+.card-text{
+    color:#4c4c4c;
+}
+
+.card-text > ul{
+    list-style-type:none;
+    padding-left:0;
+    text-align:center; 
+}
+
+.btn-card{
+    width:175px;
+    background-color:#cccccc;
+    border-color:#262626;
+}
+
+.card-body > a:visited{
+    width:175px;
+    background-color:#cccccc;
+    border-color:#262626;
+    color:#262626;
+}
+
+.page-footer{
+    background-color:#343a40;
+}
+
+.footer-copyright{
+    background-color:#2d3236;
+    color:#a6a6a6;
+}
+
+.footer-content{
+    color:#a6a6a6;
+}
