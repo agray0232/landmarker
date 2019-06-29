@@ -42,6 +42,7 @@ body{
 
 .homepage-content-wrapper{
     padding-top:50px;
+    padding-bottom:70px;
 }
 
 .homepage-main-body{
@@ -124,4 +125,8 @@ body{
 
 .footer{
     background-color:#191919;
+}
+
+.footer-copyright{
+    color:#a6a6a6;
 }
