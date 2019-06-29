@@ -3,6 +3,7 @@ body{
 }
 
 .navbar {
+    height:60px;
     opacity: 1;
     transition: opacity 0.5s ease;
 }
@@ -39,6 +40,32 @@ body{
     border-radius:20px;
 }
 
-.content{
-    height:10000px;
+.homepage-content-wrapper{
+    padding-top:50px;
+}
+
+.homepage-main-body{
+    padding-top:100px;
+}
+
+.homepage-text{
+    max-width:600px;
+}
+
+.homepage-container > .main-title{
+    font-size:50px;
+    padding-bottom: 10px;
+}
+
+.homepage-container > .subtitle{
+    font-size:20px;
+}
+
+.main-body-text{
+    color:#e5e5e5;
+}
+
+.main-body-button{
+    width:150px;
+    height:45px;
 }
