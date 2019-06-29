@@ -119,4 +119,9 @@ body{
     width:175px;
     background-color:#cccccc;
     border-color:#262626;
+    color:#262626;
+}
+
+.footer{
+    background-color:#191919;
 }
