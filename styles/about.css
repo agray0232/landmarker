@@ -1,0 +1,38 @@
+.jumbotron {
+    background-image: url(http://wallsdesk.com/wp-content/uploads/2016/11/Eiffel-Tower-High-Definition-Wallpapers.jpg);
+    background-size: cover;
+    height: 100%;}
+
+/* Styling for nav bar */
+.navbar {
+    height:60px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.navbar-hide {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.navbar-brand{
+    margin-left:15px;
+}
+
+.nav-item{
+    padding-left:10px;
+    padding-right:10px;
+}
+
+#Title{
+    color:#cccccc;
+    font-size:35px;
+}
+
+#icon-image{
+    height:40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* End Styling for nav bar */
