@@ -123,6 +123,8 @@ body{
     color:#262626;
 }
 
+/* Footer styling */
+
 .page-footer{
     background-color:#343a40;
 }
@@ -135,3 +137,5 @@ body{
 .footer-content{
     color:#a6a6a6;
 }
+
+/* End footer styling */

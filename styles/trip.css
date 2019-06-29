@@ -79,3 +79,20 @@
     margin-right: auto;
 }
 /* End Styling for nav bar */
+
+/* Footer styling */
+
+.page-footer{
+    background-color:#343a40;
+}
+
+.footer-copyright{
+    background-color:#2d3236;
+    color:#a6a6a6;
+}
+
+.footer-content{
+    color:#a6a6a6;
+}
+
+/* End footer styling */
