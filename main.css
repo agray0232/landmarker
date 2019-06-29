@@ -52,12 +52,12 @@ body{
     max-width:600px;
 }
 
-.homepage-container > .main-title{
+.homepage-body > .main-title{
     font-size:50px;
     padding-bottom: 10px;
 }
 
-.homepage-container > .subtitle{
+.homepage-body > .subtitle{
     font-size:20px;
 }
 
@@ -68,4 +68,55 @@ body{
 .main-body-button{
     width:150px;
     height:45px;
+}
+
+#main-image{
+    max-width:400px;
+}
+
+.homepage-explore{
+    padding-top:200px;
+}
+
+.explore-subtext{
+    font-size:40px;
+    padding-left:30px;
+}
+
+.card{
+    background-color:#cccccc;
+    height:400px;
+}
+
+.card-img-top{
+    max-width:150px;
+    padding-top:10px;
+}
+
+.card-title{
+    font-size:35px;
+    color:#262626;
+    text-align:center;
+}
+
+.card-text{
+    color:#4c4c4c;
+}
+
+.card-text > ul{
+    list-style-type:none;
+    padding-left:0;
+    text-align:center; 
+}
+
+.btn-card{
+    width:175px;
+    background-color:#cccccc;
+    border-color:#262626;
+}
+
+.card-body > a:visited{
+    width:175px;
+    background-color:#cccccc;
+    border-color:#262626;
 }
