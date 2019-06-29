@@ -123,10 +123,11 @@ body{
     color:#262626;
 }
 
-.footer{
-    background-color:#191919;
+.page-footer{
+    background-color:#343a40;
 }
 
 .footer-copyright{
+    background-color:#2d3236;
     color:#a6a6a6;
 }
