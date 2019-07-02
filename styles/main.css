@@ -2,38 +2,6 @@ body{
     background-color:#262626;
 }
 
-.navbar {
-    height:60px;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
-
-.navbar-hide {
-    pointer-events: none;
-    opacity: 0;
-}
-
-.navbar-brand{
-    margin-left:15px;
-}
-
-.nav-item{
-    padding-left:10px;
-    padding-right:10px;
-}
-
-#Title{
-    color:#cccccc;
-    font-size:35px;
-}
-
-#icon-image{
-    height:40px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 #image-container{
     height:40px;
     width:40px;
@@ -122,20 +90,3 @@ body{
     border-color:#262626;
     color:#262626;
 }
-
-/* Footer styling */
-
-.page-footer{
-    background-color:#343a40;
-}
-
-.footer-copyright{
-    background-color:#2d3236;
-    color:#a6a6a6;
-}
-
-.footer-content{
-    color:#a6a6a6;
-}
-
-/* End footer styling */
