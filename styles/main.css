@@ -2,17 +2,6 @@ body{
     background-color:#262626;
 }
 
-#image-container{
-    height:40px;
-    width:40px;
-    border-radius:20px;
-}
-
-.homepage-content-wrapper{
-    padding-top:50px;
-    padding-bottom:70px;
-}
-
 .homepage-main-body{
     padding-top:100px;
 }

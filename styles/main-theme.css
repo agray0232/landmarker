@@ -1,3 +1,14 @@
+/* Colors and fonts */
+.landmarker-theme{
+    background-color:#262626;
+    color:#e5e5e5;
+}
+
+.main-content-wrapper{
+    padding-top:50px;
+    padding-bottom:70px;
+}
+
 /* Styling for nav bar */
 .navbar {
     height:60px;
