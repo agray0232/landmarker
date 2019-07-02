@@ -1,7 +1,13 @@
 /* Colors and fonts */
-.landmarker-theme{
+.main-theme{
     background-color:#262626;
     color:#e5e5e5;
+}
+
+.main-button{
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
 }
 
 .main-content-wrapper{
@@ -44,7 +50,6 @@
 /* End Styling for nav bar */
 
 /* Footer styling */
-
 .page-footer{
     background-color:#343a40;
 }
@@ -57,5 +62,4 @@
 .footer-content{
     color:#a6a6a6;
 }
-
 /* End footer styling */
