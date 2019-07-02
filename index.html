@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="styles/main-theme.css" />
     <link rel="stylesheet" href="styles/index.css" />
     <script src="scripts/index.js" defer></script>
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 </head>
 
 <body class="main-theme">
@@ -48,79 +55,101 @@
         </nav>
     </header>
     <main>
-        <div class="main-content-wrapper container">
-            <section class="homepage-main-body row justify-content-around">
-                <div class="homepage-body homepage-text col-5">
-                    <h1 class="main-title">Identify Landmarks From Your Trip</h1>
-                    <p class="subtitle">
-                        Upload photos from trips you've been on to see what landmarks you've been to and
-                        where they are on the map!
+        <div class="main-wrapper">
+            <div class="main-sidebar-wrapper">
+                <nav class="main-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Bootstrap Sidebar</h3>
+                    </div>
+                    <ul class="list-unstyled components">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Trips</a>
+                        </li>
+                        <li>
+                            <a href="#">How To</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content-wrapper container">
+                <section class="homepage-main-body row justify-content-around">
+                    <div class="homepage-body homepage-text col-5">
+                        <h1 class="main-title">Identify Landmarks From Your Trip</h1>
+                        <p class="subtitle">
+                            Upload photos from trips you've been on to see what landmarks you've been to and
+                            where they are on the map!
+                        </p>
+                        <button class="btn btn-primary main-body-button">Get Started</button>
+                    </div>
+                    <div class="homepage-media col-5">
+                        <img id="main-image" src="images/main-body-image.png" alt="Italian Trulli">
+                    </div>
+                </section>
+                <section class="homepage-explore">
+                    <p class="explore-subtext">
+                        Explore Landmarks in Popular Locations
                     </p>
-                    <button class="btn btn-primary main-body-button">Get Started</button>
-                </div>
-                <div class="homepage-media col-5">
-                    <img id="main-image" src="images/main-body-image.png" alt="Italian Trulli">
-                </div>
-            </section>
-            <section class="homepage-explore">
-                <p class="explore-subtext">
-                    Explore Landmarks in Popular Locations
-                </p>
-                <div class="homepage-card row justify-content-around">
-                    <div class="card col-3 align-items-center">
-                        <img class="card-img-top" src="images/statue-of-liberty.png" alt="Card image cap">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">New York</h5>
-                            <div class="card-text">
-                                <ul>
-                                    <li>The Chrysler Building</li>
-                                    <li>Brooklyn Bridge</li>
-                                    <li>Balto Statue</li>
-                                </ul>
+                    <div class="homepage-card row justify-content-around">
+                        <div class="card col-3 align-items-center">
+                            <img class="card-img-top" src="images/statue-of-liberty.png" alt="Card image cap">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">New York</h5>
+                                <div class="card-text">
+                                    <ul>
+                                        <li>The Chrysler Building</li>
+                                        <li>Brooklyn Bridge</li>
+                                        <li>Balto Statue</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary btn-card mt-auto"
+                                    href="https://www.google.com/maps/search/landmarks/@40.7480242,-74.0046386,13z/data=!4m2!2m1!6e1"
+                                    target="_blank">
+                                    Explore New York</a>
                             </div>
-                            <a class="btn btn-primary btn-card mt-auto"
-                                href="https://www.google.com/maps/search/landmarks/@40.7480242,-74.0046386,13z/data=!4m2!2m1!6e1"
-                                target="_blank">
-                                Explore New York</a>
+                        </div>
+                        <div class="card col-3 align-items-center">
+                            <img class="card-img-top" src="images/london-bridge.png" alt="Card image cap">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">London</h5>
+                                <div class="card-text">
+                                    <ul>
+                                        <li>Big Ben</li>
+                                        <li>Tower Bridge</li>
+                                        <li>The Shard</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary btn-card mt-auto"
+                                    href="https://www.google.com/maps/search/landmarks/@51.5053807,-0.1349892,13z/data=!3m1!4b1"
+                                    target="_blank">
+                                    Explore London</a>
+                            </div>
+                        </div>
+                        <div class="card col-3 align-items-center">
+                            <img class="card-img-top" src="images/tokyo-tower.png" alt="Card image cap">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Tokyo</h5>
+                                <div class="card-text">
+                                    <ul>
+                                        <li>Tamagawa Aqueduct</li>
+                                        <li>Tokyo Tower</li>
+                                        <li>Senso-ji</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary btn-card mt-auto"
+                                    href="https://www.google.com/maps/search/landmarks/@35.6715955,139.7442683,13.14z/data=!4m2!2m1!6e1"
+                                    target="_blank">
+                                    Explore Tokyo</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card col-3 align-items-center">
-                        <img class="card-img-top" src="images/london-bridge.png" alt="Card image cap">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">London</h5>
-                            <div class="card-text">
-                                <ul>
-                                    <li>Big Ben</li>
-                                    <li>Tower Bridge</li>
-                                    <li>The Shard</li>
-                                </ul>
-                            </div>
-                            <a class="btn btn-primary btn-card mt-auto"
-                                href="https://www.google.com/maps/search/landmarks/@51.5053807,-0.1349892,13z/data=!3m1!4b1"
-                                target="_blank">
-                                Explore London</a>
-                        </div>
-                    </div>
-                    <div class="card col-3 align-items-center">
-                        <img class="card-img-top" src="images/tokyo-tower.png" alt="Card image cap">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Tokyo</h5>
-                            <div class="card-text">
-                                <ul>
-                                    <li>Tamagawa Aqueduct</li>
-                                    <li>Tokyo Tower</li>
-                                    <li>Senso-ji</li>
-                                </ul>
-                            </div>
-                            <a class="btn btn-primary btn-card mt-auto"
-                                href="https://www.google.com/maps/search/landmarks/@35.6715955,139.7442683,13.14z/data=!4m2!2m1!6e1"
-                                target="_blank">
-                                Explore Tokyo</a>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
+                </section>
+            </div>
         </div>
     </main>
     <!-- Footer -->
