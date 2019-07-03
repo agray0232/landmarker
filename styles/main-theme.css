@@ -13,7 +13,6 @@
 .main-wrapper {
     display: flex;
     width: 100%;
-    align-items: stretch;
 }
 
 .main-content-wrapper{
@@ -25,7 +24,8 @@
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
-    background: #7386D5;
+    position: fixed;
+    background: #343a40;
     color: #fff;
     transition: all 0.3s;
 }
@@ -57,7 +57,6 @@ a[data-toggle="collapse"] {
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -79,7 +78,7 @@ a, a:hover, a:focus {
 
 .main-sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #2d3236;
 }
 
 .main-sidebar ul.components {
