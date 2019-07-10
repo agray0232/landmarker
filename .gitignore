@@ -25,9 +25,6 @@
 *.tar
 *.zip
 
-# ignore private functions
-/functions/*
-
 # -------------------------
 # BEGIN Whitelisted Files
 # -------------------------
