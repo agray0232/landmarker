@@ -1,5 +1,5 @@
 function testFunction() {
-    var xhr = createCORSRequest('POST', "https://us-central1-landmarks-959fd.cloudfunctions.net/addMessage?text=\"Yo!\"");
+    var xhr = createCORSRequest('POST', "https://us-central1-landmarks-959fd.cloudfunctions.net/addMessage");
     if (!xhr) {
         throw new Error('CORS not supported');
     }
