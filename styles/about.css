@@ -1,6 +1,19 @@
+.about-main-body{
+    height: 600px;
+}
+
 .jumbotron {
-    background-image: url(https://images.unsplash.com/photo-1458262488536-98366625ae59?ixlib=rb-1.2.1&auto=format&fit=crop&w=1348&q=80);
+    background-image: url(../images/EiffelTowerNoBackground.png);
     background-size: cover;
     height: 100%;
+}
+
+.profiles{
+    padding-top:100px;
+}
+
+.about-profiles-subtext{
+    font-size:60px;
+    text-align:center;
 }
 
