@@ -15,19 +15,54 @@ const cors = require('cors')({
     origin: true
 });
 
-// Take the text parameter passed to this HTTP endpoint and insert it into the
-// Realtime Database under the path /messages/:pushId/original
-exports.addMessage = functions.https.onRequest(async (req, res) => {
-    cors(req, res, () => {
-        // Grab the text parameter.
-        const original = req.query.text;
-        // Push the new message into the Realtime Database using the Firebase Admin SDK.
-        const snapshot = admin.database().ref('/messages').push({ original: original });
-        // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
+exports.findLandmarks = functions.https.onRequest(async (req, res) => {
+    return cors(req, res, () => {
         res.set('Access-Control-Allow-Origin', '*');
-        res.json({
-            status: 'success',
-            ref: snapshot.ref.toString(),
-        });
-    });
+        const axios = require('axios');
+        const key = functions.config().vision.id;
+        // add a check to see if body has an image
+        // if not, return an error
+        if (!req.body || !req.body.image) {
+            res.status(400).send({
+                error: true,
+                message: 'No image detected'
+            });
+        }
+        const imageData = req.body.image;
+
+        const url = `https://vision.googleapis.com/v1/images:annotate?key=${key}`
+        return axios.post(url, {
+            "requests": [{
+                "image": {
+                    "content": imageData
+                },
+                "features": [{
+                    "type": "LANDMARK_DETECTION",
+                    "maxResults": 50
+                },]
+            }]
+        })
+            .then(response => {
+                console.log('formatting data');
+                const landmark = response.data.responses[0].landmarkAnnotations[0];
+                console.log(JSON.stringify(landmark));
+                return {
+                    landmark: landmark.description,
+                    lat: landmark.locations[0].latLng.latitude,
+                    long: landmark.locations[0].latLng.longitude
+                };
+            })
+            .then(data => {
+                console.log('success');
+                res.send(data);
+            })
+            .catch(error => {
+                console.log('error');
+                console.error(error.response);
+                res.status(400).send({
+                    error: error.response
+                });
+            })
+    })
 });
+
