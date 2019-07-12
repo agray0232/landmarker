@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Landmarks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main-theme.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="scripts/index.js" defer></script>
+    <!-- <script src="scripts/login.js"></script> -->
+</head>
+
+<body class="main-theme">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div id="image-container">
+                <img id="icon-image" src="images/icon.png" alt="Landmarks Icon">
+            </div>
+            <a class="navbar-brand" href="#">Landmarks</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/addTrip.html">Trips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/howto.html">How-To</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="firebaseui-auth-container">
+                <button id="LoginBtn" class="btn-primary">Login</button>
+            </div>
+
+        </nav>
+    </header>
+    <main>
+        <div class="main-content-wrapper container">
+            <section class="homepage-main-body row justify-content-around">
+                <div class="homepage-body homepage-text col-5">
+                    <h1 class="main-title">Identify Landmarks From Your Trip</h1>
+                    <p class="subtitle">
+                        Upload photos from trips you've been on to see what landmarks you've been to and
+                        where they are on the map!
+                    </p>
+                    <button class="btn btn-primary main-body-button">Get Started</button>
+                </div>
+                <div class="homepage-media col-5">
+                    <img id="main-image" src="images/main-body-image.png" alt="Italian Trulli">
+                </div>
+            </section>
+
+            <section class="homepage-explore">
+                <p class="explore-subtext">
+                    Explore Landmarks in Popular Locations
+                </p>
+                <div class="homepage-card row justify-content-around">
+                    <div class="card col-3 align-items-center">
+                        <img class="card-img-top" src="images/statue-of-liberty.png" alt="Card image cap">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">New York</h5>
+                            <div class="card-text">
+                                <ul>
+                                    <li>The Chrysler Building</li>
+                                    <li>Brooklyn Bridge</li>
+                                    <li>Balto Statue</li>
+                                </ul>
+                            </div>
+                            <a class="btn btn-primary btn-card mt-auto"
+                                href="https://www.google.com/maps/search/landmarks/@40.7480242,-74.0046386,13z/data=!4m2!2m1!6e1"
+                                target="_blank">
+                                Explore New York</a>
+                        </div>
+                    </div>
+                    <div class="card col-3 align-items-center">
+                        <img class="card-img-top" src="images/london-bridge.png" alt="Card image cap">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">London</h5>
+                            <div class="card-text">
+                                <ul>
+                                    <li>Big Ben</li>
+                                    <li>Tower Bridge</li>
+                                    <li>The Shard</li>
+                                </ul>
+                            </div>
+                            <a class="btn btn-primary btn-card mt-auto"
+                                href="https://www.google.com/maps/search/landmarks/@51.5053807,-0.1349892,13z/data=!3m1!4b1"
+                                target="_blank">
+                                Explore London</a>
+                        </div>
+                    </div>
+                    <div class="card col-3 align-items-center">
+                        <img class="card-img-top" src="images/tokyo-tower.png" alt="Card image cap">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Tokyo</h5>
+                            <div class="card-text">
+                                <ul>
+                                    <li>Tamagawa Aqueduct</li>
+                                    <li>Tokyo Tower</li>
+                                    <li>Senso-ji</li>
+                                </ul>
+                            </div>
+                            <a class="btn btn-primary btn-card mt-auto"
+                                href="https://www.google.com/maps/search/landmarks/@35.6715955,139.7442683,13.14z/data=!4m2!2m1!6e1"
+                                target="_blank">
+                                Explore Tokyo</a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="page-footer font-small pt-4">
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col-md-6 mb-4">
+                    <p>Contact</p>
+                    <ul>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <p>Legal</p>
+                    <ul>
+                        <li><a href="https://pngtree.com/free-icon">Icons</a> from pngtree.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="https://github.com/agray0232/landmarks"> Landmarks Co</a>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+    <script src="scripts/login.js"></script>
+
+
+</body>
+
+</html>
