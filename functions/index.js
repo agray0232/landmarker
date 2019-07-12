@@ -31,6 +31,8 @@ exports.findLandmarks = functions.https.onRequest(async (req, res) => {
         const imageData = req.body.image;
 
         const url = `https://vision.googleapis.com/v1/images:annotate?key=${key}`
+        console.log(url);
+        console.log(imageData.substr(0, 20));
         return axios.post(url, {
             "requests": [{
                 "image": {

@@ -30,7 +30,10 @@ function testFunction() {
                 var text = xhr.responseText;
                 var resJson = JSON.parse(text);
                 console.log(resJson);
-                alert('Response from CORS request: ' + resJson.status);
+                var name = resJson.landmark;
+                var lat = resJson.lat;
+                var lng = resJson.long;
+                addPin(name, lat, lng);
             };
 
             xhr.onerror = function () {

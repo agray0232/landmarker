@@ -1,5 +1,10 @@
 $(document).ready(function () {
   console.log("ready!");
+
+  $('.js-upload').on('click', (e) => {
+    e.preventDefault();
+    testFunction();
+  })
 });
 
 // firebase.initializeApp({
@@ -7,9 +12,9 @@ $(document).ready(function () {
 //   authDomain: "landmarks-959fd.firebaseapp.com",
 //   projectId: '"landmarks-959fd"'
 // });
-
+var map = null;
 window.initMap = function () {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 10.924638, lng: -29.706279 },
     zoom: 2.5,
     styles: [
@@ -98,13 +103,14 @@ window.initMap = function () {
   //define userLatLng as user locations  
 
   //var userLatLng = ({lat: , lng: })
+  /*
   var userLandmarkName = ('')
 
   var marker = new google.maps.Marker({
     position: userLatLng,
     map: map,
     title: userLandmarkName
-  });
+  });*/
 }
 //getting data from firebase
 
@@ -112,4 +118,14 @@ window.initMap = function () {
 
 
 
-  //Need to map markers through firestore
+//Need to map markers through firestore
+function addPin(name, lat, lng) {
+  var marker = new google.maps.Marker({
+    position: {
+      lat: lat,
+      lng: lng,
+    },
+    map: map,
+    title: name,
+  });
+}
