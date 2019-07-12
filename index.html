@@ -15,6 +15,7 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <script src="scripts/index.js" defer></script>
+    <script src="scripts/navBar.js" defer></script>
     <!-- <script src="scripts/login.js"></script> -->
 </head>
 
@@ -46,7 +47,7 @@
                 </ul>
             </div>
             <div id="firebaseui-auth-container">
-                <button id="LoginBtn" class="btn-primary">Login</button>
+                <button id="LoginBtn" class="btn btn-primary">Login</button>
             </div>
 
         </nav>
@@ -60,7 +61,9 @@
                         Upload photos from trips you've been on to see what landmarks you've been to and
                         where they are on the map!
                     </p>
-                    <button class="btn btn-primary main-body-button">Get Started</button>
+                    <button class="btn btn-primary main-body-button"
+                        onclick="window.location.href='pages/addTrip.html'">Get
+                        Started</button>
                 </div>
                 <div class="homepage-media col-5">
                     <img id="main-image" src="images/main-body-image.png" alt="Italian Trulli">

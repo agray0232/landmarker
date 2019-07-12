@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/trip.css">
 </head>
 
-<body>
+<body class="main-theme">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div id="image-container">
@@ -41,9 +41,9 @@
     </header>
     <main>
         <div class="main-content-wrapper">
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid main-theme">
                 <div class="container">
-                    <h1 class="display-4">Map</h1>
+                    <h1 class="main-title">Map</h1>
                     <p class="lead">Take a look at your landmarks.</p>
                 </div>
             </div>
@@ -51,8 +51,6 @@
                 <div class="mapouter">
                     <div class="gmap_canvas">
                         <div id="map"></div>
-                        <!-- Replace the value of the key parameter with your own API key. -->
-
                         <a href="https://www.crocothemes.net"></a>
                     </div>
                 </div>
@@ -101,7 +99,6 @@
             <a href="https://github.com/agray0232/landmarks"> Landmarks Co</a>
         </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -113,10 +110,10 @@
         crossorigin="anonymous"></script>
     <script src="../scripts/functions.js"></script>
     <script src="../scripts/map.js"></script>
+    <script src="../scripts/navBar.js"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKnWevMb6PhyOX62Fw5T9D6Szdu_O62vk&callback=initMap">
         </script>
-
 </body>
 
 </html>
