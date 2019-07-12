@@ -15,37 +15,26 @@ const cors = require('cors')({
     origin: true
 });
 
-// Take the text parameter passed to this HTTP endpoint and insert it into the
-// Realtime Database under the path /messages/:pushId/original
-
-exports.addMessage = functions.https.onRequest(async (req, res) => {
+exports.findLandmarks = functions.https.onRequest(async (req, res) => {
     return cors(req, res, () => {
         res.set('Access-Control-Allow-Origin', '*');
-        var express = require('express');
         const axios = require('axios');
-
-        //var fs = require('fs');
-        //var image = fs.readFileSync("/Users/anthonygray/Downloads/big-ben-test.jpg");
-
         const key = functions.config().vision.id;
-        //console.error(req.body);
-        //console.error(JSON.stringify(req.body.base64img));
-        //const buff = Buffer.from(image);
-        //const base64img = buff.toString('base64');
-        //console.error(base64img);
+        // add a check to see if body has an image
+        // if not, return an error
+        if (!req.body || !req.body.image) {
+            res.status(400).send({
+                error: true,
+                message: 'No image detected'
+            });
+        }
+        const imageData = req.body.image;
 
         const url = `https://vision.googleapis.com/v1/images:annotate?key=${key}`
-        //return
-        res.set('Access-Control-Allow-Origin', '*');
-        res.json({
-            landmark: "hello",
-        });
-        /*axios.post(url, {
+        return axios.post(url, {
             "requests": [{
                 "image": {
-                    "source": {
-                        "content": base64img,
-                    }
+                    "content": imageData
                 },
                 "features": [{
                     "type": "LANDMARK_DETECTION",
@@ -54,11 +43,26 @@ exports.addMessage = functions.https.onRequest(async (req, res) => {
             }]
         })
             .then(response => {
-                const landmarks = response.data.responses[0].landmarkanotations;
-                res.set('Access-Control-Allow-Origin', '*');
-                res.json({
-                    landmark: landmarks.landmarkannotations.description,
+                console.log('formatting data');
+                const landmark = response.data.responses[0].landmarkAnnotations[0];
+                console.log(JSON.stringify(landmark));
+                return {
+                    landmark: landmark.description,
+                    lat: landmark.locations[0].latLng.latitude,
+                    long: landmark.locations[0].latLng.longitude
+                };
+            })
+            .then(data => {
+                console.log('success');
+                res.send(data);
+            })
+            .catch(error => {
+                console.log('error');
+                console.error(error.response);
+                res.status(400).send({
+                    error: error.response
                 });
-            });*/
+            })
     })
 });
+

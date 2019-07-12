@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles/main-theme.css" />
     <link rel="stylesheet" href="styles/index.css" />
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <script src="scripts/index.js" defer></script>
     <!-- <script src="scripts/login.js"></script> -->
 </head>
@@ -48,9 +48,7 @@
             <div id="firebaseui-auth-container">
                 <button id="LoginBtn" class="btn-primary">Login</button>
             </div>
-            <div id="FunctionTester">
-                <button onclick="testFunction()" class="btn btn-primary">Test Functions</button>
-            </div>
+
         </nav>
     </header>
     <main>
@@ -66,6 +64,12 @@
                 </div>
                 <div class="homepage-media col-5">
                     <img id="main-image" src="images/main-body-image.png" alt="Italian Trulli">
+                </div>
+            </section>
+            <section>
+                <input type="file" name="image" id="image">
+                <div id="FunctionTester">
+                    <button onclick="testFunction()" class="btn btn-primary">Test Functions</button>
                 </div>
             </section>
             <section class="homepage-explore">

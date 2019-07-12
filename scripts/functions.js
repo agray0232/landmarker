@@ -1,28 +1,54 @@
-function testFunction() {
-    var xhr = createCORSRequest('POST', "https://us-central1-landmarks-959fd.cloudfunctions.net/addMessage");
-    if (!xhr) {
-        throw new Error('CORS not supported');
-    }
-    else {
-        console.log('CORs is supported');
+function getBase64(file) {
+    var reader = new FileReader();
 
-        // Response handlers.
-        xhr.onload = function () {
-            var text = xhr.responseText;
-            var resJson = JSON.parse(text);
-            console.log(resJson);
-            alert('Response from CORS request: ' + resJson.status);
+    return new Promise(function (resolve, reject) {
+        reader.readAsDataURL(file);
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+            reject(error);
         };
-
-        xhr.onerror = function () {
-            alert('Woops, there was an error making the request.');
+        reader.onload = function () {
+            resolve(reader.result);
         };
-
-        xhr.send();
-    }
+    })
 }
 
-function createCORSRequest(method, url) {
+function testFunction() {
+
+    var file = document.querySelector('#image').files[0];
+
+    getBase64(file).then((base64img) => {
+        var xhr = createCORSRequest('POST', "https://us-central1-landmarks-959fd.cloudfunctions.net/findLandmarks");
+        if (!xhr) {
+            throw new Error('CORS not supported');
+        }
+        else {
+            console.log('CORs is supported');
+
+            // Response handlers.
+            xhr.onload = function () {
+                var text = xhr.responseText;
+                var resJson = JSON.parse(text);
+                console.log(resJson);
+                alert('Response from CORS request: ' + resJson.status);
+            };
+
+            xhr.onerror = function () {
+                alert('Woops, there was an error making the request.');
+            };
+
+            xhr.setRequestHeader('content-type', 'application/json');
+
+            var data = {
+                "image": base64img.split(',')[1]
+            }
+
+            xhr.send(JSON.stringify(data));
+        }
+    });
+}
+
+function createCORSRequest(method, url, data) {
     var xhr = new XMLHttpRequest();
     if ("withCredentials" in xhr) {
 
