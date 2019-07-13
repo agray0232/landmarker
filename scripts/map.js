@@ -1,18 +1,13 @@
 $(document).ready(function () {
-  console.log("ready!");
-
   $('.js-upload').on('click', (e) => {
     e.preventDefault();
     testFunction();
   })
 });
 
-// firebase.initializeApp({
-//   apiKey: "AIzaSyAHQfTJLUMgBDlx94jzXev8YalLgMwXzgI",
-//   authDomain: "landmarks-959fd.firebaseapp.com",
-//   projectId: '"landmarks-959fd"'
-// });
 var map = null;
+var markers = [];
+
 window.initMap = function () {
   map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 10.924638, lng: -29.706279 },
@@ -98,25 +93,32 @@ window.initMap = function () {
       }
     ]
   });
-
-  //Adding marker from fire base
-  //define userLatLng as user locations  
-
-  //var userLatLng = ({lat: , lng: })
-  /*
-  var userLandmarkName = ('')
-
-  var marker = new google.maps.Marker({
-    position: userLatLng,
-    map: map,
-    title: userLandmarkName
-  });*/
 }
-//getting data from firebase
 
-// var db = firebase.firestore();
+function updateMap() {
+  var landmarksPromise = getCurrentUserData();
+  landmarksPromise.then(function (snapshot) {
 
+    var stringSnapshot = JSON.stringify(snapshot);
+    var objectSnapshot = JSON.parse(stringSnapshot);
+    var landmarks = objectSnapshot.landmarks;
+    for (var landmarkIndex in landmarks) {
+      var landmark = landmarks[landmarkIndex];
+      if (!mapContains(landmark)) {
+        addPin(landmark.description, landmark.lat, landmark.long)
+      }
+    }
+  })
+}
 
+function mapContains(landmark) {
+  var contains = false;
+
+  if (markers.filter(marker => (marker.title === landmark.description)).length > 0) {
+    contains = true;
+  }
+  return contains;
+}
 
 //Need to map markers through firestore
 function addPin(name, lat, lng) {
@@ -128,4 +130,5 @@ function addPin(name, lat, lng) {
     map: map,
     title: name,
   });
+  markers.push(marker);
 }
