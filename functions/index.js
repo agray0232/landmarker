@@ -15,24 +15,34 @@ const cors = require('cors')({
     origin: true
 });
 
-exports.findLandmarks = functions.https.onRequest(async(req, res) => {
+/**
+ * Queries the Cloud Vision API to check for landmarks inside of a provided image,
+ * and returns an array of all the identified landmarks
+ * 
+ * @param req - JSON request with body that contains field "image" which is a stringified base64 formatted image
+ * @returns res - A response with an array of found landmarks       
+ */
+exports.findLandmarks = functions.https.onRequest(async (req, res) => {
     return cors(req, res, () => {
         res.set('Access-Control-Allow-Origin', '*');
         const axios = require('axios');
+
+        // Grab the vision api key from the configuration
         const key = functions.config().vision.id;
-        // add a check to see if body has an image
-        // if not, return an error
+
+        // If there is no body or image, send back an error
         if (!req.body || !req.body.image) {
             res.status(400).send({
                 error: true,
                 message: 'No image detected'
             });
         }
+
+        // Grab the base64 image data
         const imageData = req.body.image;
 
         const url = `https://vision.googleapis.com/v1/images:annotate?key=${key}`
-        console.log(url);
-        console.log(imageData.substr(0, 20));
+
         return axios.post(url, {
                 "requests": [{
                     "image": {
@@ -45,14 +55,7 @@ exports.findLandmarks = functions.https.onRequest(async(req, res) => {
                 }]
             })
             .then(response => {
-                console.log('formatting data');
-                const landmark = response.data.responses[0].landmarkAnnotations[0];
-                console.log(JSON.stringify(landmark));
-                return {
-                    landmark: landmark.description,
-                    lat: landmark.locations[0].latLng.latitude,
-                    long: landmark.locations[0].latLng.longitude
-                };
+                return formatData(response.data.responses);
             })
             .then(data => {
                 console.log('success');
@@ -67,3 +70,4 @@ exports.findLandmarks = functions.https.onRequest(async(req, res) => {
             })
     })
 });
+
