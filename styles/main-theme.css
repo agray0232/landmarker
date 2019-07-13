@@ -13,6 +13,12 @@
 .main-content-wrapper{
     padding-top:50px;
     padding-bottom:70px;
+    min-height: calc(100vh - 0px);
+}
+
+.main-title{
+    font-size:50px;
+    padding-bottom: 10px; 
 }
 
 /* Styling for nav bar */

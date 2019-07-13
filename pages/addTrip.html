@@ -1,13 +1,19 @@
 <html>
 
 <head>
+    <script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-database.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/main-theme.css" />
     <link rel="stylesheet" type="text/css" href="../styles/trip.css">
+    <script src="../scripts/firebase.js"></script>
 </head>
 
-<body>
+<body class="main-theme">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div id="image-container">
@@ -34,16 +40,16 @@
                     </li>
                 </ul>
             </div>
-            <div id="LoginButton">
-                <button class="btn btn-primary">Login</button>
+            <div>
+                <button id="sign-out">Sign Out</button>
             </div>
         </nav>
     </header>
     <main>
         <div class="main-content-wrapper">
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid main-theme">
                 <div class="container">
-                    <h1 class="display-4">Map</h1>
+                    <h1 class="main-title">Map</h1>
                     <p class="lead">Take a look at your landmarks.</p>
                 </div>
             </div>
@@ -51,8 +57,6 @@
                 <div class="mapouter">
                     <div class="gmap_canvas">
                         <div id="map"></div>
-                        <!-- Replace the value of the key parameter with your own API key. -->
-
                         <a href="https://www.crocothemes.net"></a>
                     </div>
                 </div>
@@ -102,6 +106,9 @@
         </div>
     </footer>
 
+    <!-- Add Firebase products that you want to use -->
+
+    <script src="../scripts/sign-out.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -111,12 +118,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="../scripts/functions.js"></script>
     <script src="../scripts/map.js"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKnWevMb6PhyOX62Fw5T9D6Szdu_O62vk&callback=initMap">
         </script>
-
+    <script src="../scripts/functions.js"></script>
+    <script src="../scripts/dataStorage.js"></script>
+    <script src="../scripts/navBar.js"></script>
 </body>
 
 </html>

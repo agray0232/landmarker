@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../styles/main-theme.css" />
   <link rel="stylesheet" href="../styles/about.css" />
+  <script src="../scripts/navBar.js"></script>
   <title>About Us</title>
 </head>
 
-<body>
+<body class="main-theme">
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div id="image-container">
@@ -45,80 +48,92 @@
   </header>
   <main>
     <div class="main-content-wrapper">
-    <div class="jumbotron" style="height: 600px">
-      <div class="container top-section text-left">
-        <div class="main-heading">
-          <h1 class="display-3" style="color:#4c4c4c">About Us!</h1>
-        </div>
-        <div class="top-blurb">
-          <p class="text-left col-5" style="color:#4c4c4c">Sometimes, it's hard to pick out which of your pictures
-            were of notable places, and which
-            were just of basic surroundings. We're here to help. We can take your images, determine
-            if they were of a notable landmark, and then pin them on a map for you to look back on
-            all the major landmarks you experienced. Learn more about us below. </p>
-          <p><a class="btn btn-primary btn-lg" href="addTrip.html" role="button" style="background-color:#4c4c4c">Start Uploading
-              Now!
-              &raquo;</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="profiles py-5 bg-light">
-      <div class="profiles-container">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card mb-3">
-              <img class="card-img-top" src="../images/anthony.jpg" alt="Anthony">
-              <div class="card-body">
-                <p class="card-text">Anthony Bio.........</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="https://github.com/agray0232" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="background-color:gray">Github</a>
-                  </div>
-                </div>
-              </div>
+      <section class="about-main-body">
+        <div class="jumbotron main-theme">
+          <div class="container top-section text-left">
+            <div class="main-heading">
+              <h1 class="display-3">About Us!</h1>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-3 box-shadow">
-              <img class="card-img-top" src="../images/placeholder.jpg" alt="David">
-              <div class="card-body">
-                <p class="card-text">David Bio.........</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="https://github.com/DKandler" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="background-color:gray">Github</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-3 box-shadow">
-              <img class="card-img-top" src="../images/josh.jpg" alt="Josh">
-              <div class="card-body">
-                <p class="card-text">Josh Bio......</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="https://github.com/jcox50" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="background-color:gray">Github</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-3 box-shadow">
-              <img class="card-img-top" src="../images/LizzyResized.jpg" alt="Lizzy">
-              <div class="card-body">
-                <p class="card-text">Lizzy works as a Project Manager for a web development team at a digital marketing startup. She is a student of DigitalCrafts fullstack development course. </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="https://github.com/elizabethreese" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="background-color:gray">Github</a>
-                  </div>
-                </div>
-              </div>
+            <div class="top-blurb">
+              <p class="text-left col-5">Sometimes, it's hard to pick out which of your pictures
+                were of notable places, and which
+                were just of basic surroundings. We're here to help. We can take your images, determine
+                if they were of a notable landmark, and then pin them on a map for you to look back on
+                all the major landmarks you experienced. Learn more about us below. </p>
+              <p><a class="btn btn-primary btn-lg" href="addTrip.html" role="button">Start Uploading Now!
+                  &raquo;</a></p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="profiles main-theme">
+        <p class="about-profiles-subtext">
+          Meet the team
+        </p>
+        <div class="profiles-container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card mb-3">
+                <img class="card-img-top" src="../images/anthony.jpg" alt="Anthony">
+                <div class="card-body">
+                  <p class="card-text">Anthony Bio.........</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://github.com/agray0232" class="btn btn-primary btn-lg active" role="button"
+                        aria-pressed="true" style="background-color:gray">Github</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3 box-shadow">
+                <img class="card-img-top" src="../images/placeholder.jpg" alt="David">
+                <div class="card-body">
+                  <p class="card-text">David Bio.........</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://github.com/DKandler" class="btn btn-primary btn-lg active" role="button"
+                        aria-pressed="true" style="background-color:gray">Github</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3 box-shadow">
+                <img class="card-img-top" src="../images/josh.jpg" alt="Josh">
+                <div class="card-body">
+                  <p class="card-text">Josh Bio......</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://github.com/jcox50" class="btn btn-primary btn-lg active" role="button"
+                        aria-pressed="true" style="background-color:gray">Github</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3 box-shadow">
+                <img class="card-img-top" src="../images/LizzyResized.jpg" alt="Lizzy">
+                <div class="card-body">
+                  <p class="card-text">Lizzy works as a Project Manager for a web development team at a digital
+                    marketing startup. She is a student of
+                    DigitalCrafts fullstack development course.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://github.com/elizabethreese" class="btn btn-primary btn-lg active" role="button"
+                        aria-pressed="true" style="background-color:gray">Github</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
   </main>
   <!-- Footer -->
   <footer class="page-footer font-small pt-4">
@@ -138,7 +153,7 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="https://github.com/agray0232/landmarks"> Landmarks Co</a>
     </div>
