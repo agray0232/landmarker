@@ -26,7 +26,7 @@ function testFunction() {
                 var text = xhr.responseText;
                 var resJson = JSON.parse(text);
                 updateDatabase(resJson);
-                plotLandmarks(getCurrentUserData())
+                updateMap();
                 console.log(resJson);
             };
 

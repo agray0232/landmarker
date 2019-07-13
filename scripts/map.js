@@ -95,7 +95,8 @@ window.initMap = function () {
   });
 }
 
-function plotLandmarks(landmarksPromise) {
+function updateMap() {
+  var landmarksPromise = getCurrentUserData();
   landmarksPromise.then(function (snapshot) {
 
     var stringSnapshot = JSON.stringify(snapshot);
