@@ -7,20 +7,28 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
-function writeLocation(resJson) {
-    console.log("Writing response to firebase");
+function updateDatabase(resJson) {
     const userId = firebase.auth().currentUser.uid;
-    //firebase.database().set
-    firebase.database().ref('users/' + userId).child("landmarks").set(resJson);
+    resJson.forEach(function (landmark) {
+        var name = landmark.description;
+        var landmarkObj = {};
+        landmarkObj[name] = landmark;
+        firebase.database().ref('users/' + userId).child("landmarks").update(landmarkObj);
+    })
 }
 
-function getAllLandmarks() {
-    var userId = firebase.auth().currentUser.uid;
-
+function getCurrentUserData() {
     var promise = new Promise(function (resolve, reject) {
 
+        const userId = firebase.auth().currentUser.uid;
+
         firebase.database().ref('users/' + userId).once('value').then(function (snapshot) {
-            resolve(snapshot);
+            if (snapshot === undefined) {
+                reject()
+            }
+            else {
+                resolve(snapshot);
+            }
         });
 
     })

@@ -25,8 +25,8 @@ function testFunction() {
             xhr.onload = function () {
                 var text = xhr.responseText;
                 var resJson = JSON.parse(text);
-                writeLocation(resJson);
-                plotLandmarks(getAllLandmarks())
+                updateDatabase(resJson);
+                plotLandmarks(getCurrentUserData())
                 console.log(resJson);
             };
 
