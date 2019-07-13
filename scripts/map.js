@@ -95,12 +95,17 @@ window.initMap = function () {
   });
 }
 
-function plotLandmarks(landmarks) {
-  console.log(JSON.stringify(landmarks));
-  landmarks.forEach(function (landmark) {
-    if (!mapContains(landmark)) {
-      console.log("getting here");
-      addPin(landmark.description, landmark.lat, landmark.long)
+function plotLandmarks(landmarksPromise) {
+  landmarksPromise.then(function (snapshot) {
+
+    var stringSnapshot = JSON.stringify(snapshot);
+    var objectSnapshot = JSON.parse(stringSnapshot);
+    var landmarks = objectSnapshot.landmarks;
+    for (var landmarkIndex in landmarks) {
+      var landmark = landmarks[landmarkIndex];
+      if (!mapContains(landmark)) {
+        addPin(landmark.description, landmark.lat, landmark.long)
+      }
     }
   })
 }
@@ -116,7 +121,6 @@ function mapContains(landmark) {
 
 //Need to map markers through firestore
 function addPin(name, lat, lng) {
-  console.log("added pin");
   var marker = new google.maps.Marker({
     position: {
       lat: lat,
@@ -126,5 +130,4 @@ function addPin(name, lat, lng) {
     title: name,
   });
   markers.push(marker);
-  console.log(markers.length);
 }

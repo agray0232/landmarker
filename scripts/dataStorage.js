@@ -14,29 +14,16 @@ function writeLocation(resJson) {
     firebase.database().ref('users/' + userId).child("landmarks").set(resJson);
 }
 
-
 function getAllLandmarks() {
     var userId = firebase.auth().currentUser.uid;
-    return firebase.database().ref('users/' + userId).once('value').then(function (snapshot) {
-        console.log(JSON.stringify(snapshot));
-        return snapshot;
-    });
+
+    var promise = new Promise(function (resolve, reject) {
+
+        firebase.database().ref('users/' + userId).once('value').then(function (snapshot) {
+            resolve(snapshot);
+        });
+
+    })
+
+    return promise;
 }
-
-/*
-function getAllLandmarks() {
-    var landmarks = [
-        {
-            description: "Big Ben",
-            lat: 51.500782,
-            long: -0.12462600000000001
-        },
-        {
-            description: "Taj Mahal",
-            lat: 27.174698469698683,
-            long: 78.042073
-        }
-    ]
-
-    return landmarks
-}*/
