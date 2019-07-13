@@ -15,7 +15,7 @@ const cors = require('cors')({
     origin: true
 });
 
-exports.findLandmarks = functions.https.onRequest(async (req, res) => {
+exports.findLandmarks = functions.https.onRequest(async(req, res) => {
     return cors(req, res, () => {
         res.set('Access-Control-Allow-Origin', '*');
         const axios = require('axios');
@@ -34,16 +34,16 @@ exports.findLandmarks = functions.https.onRequest(async (req, res) => {
         console.log(url);
         console.log(imageData.substr(0, 20));
         return axios.post(url, {
-            "requests": [{
-                "image": {
-                    "content": imageData
-                },
-                "features": [{
-                    "type": "LANDMARK_DETECTION",
-                    "maxResults": 50
-                },]
-            }]
-        })
+                "requests": [{
+                    "image": {
+                        "content": imageData
+                    },
+                    "features": [{
+                        "type": "LANDMARK_DETECTION",
+                        "maxResults": 50
+                    }, ]
+                }]
+            })
             .then(response => {
                 console.log('formatting data');
                 const landmark = response.data.responses[0].landmarkAnnotations[0];
@@ -67,4 +67,3 @@ exports.findLandmarks = functions.https.onRequest(async (req, res) => {
             })
     })
 });
-

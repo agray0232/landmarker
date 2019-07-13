@@ -6,7 +6,7 @@ var firebaseConfig = {
     storageBucket: "landmarks-959fd.appspot.com",
     messagingSenderId: "428028328211",
     appId: "1:428028328211:web:a00b8a622bf73b0d"
-  };
+};
 
 
 // Initialize Firebase
@@ -20,18 +20,16 @@ document.getElementById('LoginBtn').addEventListener('click', function(e) {
                 return true;
             },
             uiShown: function() {
-                
+
             }
         },
         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
         // signInFlow: 'popup',
         signInSuccessUrl: 'pages/addTrip.html',
-        signInOptions: [
-            {
-              provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-              requireDisplayName: false
-            }
-          ],
+        signInOptions: [{
+            provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            requireDisplayName: false
+        }],
 
     };
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -39,6 +37,3 @@ document.getElementById('LoginBtn').addEventListener('click', function(e) {
 
 
 })
-
-
-
