@@ -15,34 +15,24 @@ const cors = require('cors')({
     origin: true
 });
 
-/**
- * Queries the Cloud Vision API to check for landmarks inside of a provided image,
- * and returns an array of all the identified landmarks
- * 
- * @param req - JSON request with body that contains field "image" which is a stringified base64 formatted image
- * @returns res - A response with an array of found landmarks       
- */
 exports.findLandmarks = functions.https.onRequest(async (req, res) => {
     return cors(req, res, () => {
         res.set('Access-Control-Allow-Origin', '*');
         const axios = require('axios');
-
-        // Grab the vision api key from the configuration
         const key = functions.config().vision.id;
-
-        // If there is no body or image, send back an error
+        // add a check to see if body has an image
+        // if not, return an error
         if (!req.body || !req.body.image) {
             res.status(400).send({
                 error: true,
                 message: 'No image detected'
             });
         }
-
-        // Grab the base64 image data
         const imageData = req.body.image;
 
         const url = `https://vision.googleapis.com/v1/images:annotate?key=${key}`
-
+        console.log(url);
+        console.log(imageData.substr(0, 20));
         return axios.post(url, {
             "requests": [{
                 "image": {
@@ -55,7 +45,14 @@ exports.findLandmarks = functions.https.onRequest(async (req, res) => {
             }]
         })
             .then(response => {
-                return formatData(response.data.responses);
+                console.log('formatting data');
+                const landmark = response.data.responses[0].landmarkAnnotations[0];
+                console.log(JSON.stringify(landmark));
+                return {
+                    landmark: landmark.description,
+                    lat: landmark.locations[0].latLng.latitude,
+                    long: landmark.locations[0].latLng.longitude
+                };
             })
             .then(data => {
                 console.log('success');
@@ -70,32 +67,4 @@ exports.findLandmarks = functions.https.onRequest(async (req, res) => {
             })
     })
 });
-
-/**
- * Creates an array of landmark objects from the raw data from cloud vision. Cloud vision
- * can return multple hits for the same landmark, so this method checks against that.
- * 
- * @param data - Raw cloud vision response data
- * @returns formattedData - An array of landmark objects extracted from the raw data
- */
-function formatData(data) {
-    var formattedData = [];
-    console.log('formatting data');
-
-    data[0].landmarkAnnotations.forEach(function (landmark) {
-
-        // If the formatted data does not already contain this landmark
-        if (formattedData.filter(formattedLandmark => (formattedLandmark.description === landmark.description)).length == 0) {
-            var landmark =
-            {
-                description: landmark.description,
-                lat: landmark.locations[0].latLng.latitude,
-                long: landmark.locations[0].latLng.longitude
-            }
-            formattedData.push(landmark);
-        }
-    })
-
-    return formattedData;
-}
 
