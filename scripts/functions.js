@@ -1,6 +1,6 @@
 function getBase64(file) {
     var reader = new FileReader();
-
+    console.log("getting base64");
     return new Promise(function (resolve, reject) {
         reader.readAsDataURL(file);
         reader.onerror = function (error) {
@@ -14,7 +14,7 @@ function getBase64(file) {
 }
 
 function testFunction() {
-
+    console.log("test function");
     var file = document.querySelector('#image').files[0];
 
     getBase64(file).then((base64img) => {
@@ -52,6 +52,7 @@ function testFunction() {
 }
 
 function createCORSRequest(method, url, data) {
+    console.log("creating cors request");
     var xhr = new XMLHttpRequest();
     if ("withCredentials" in xhr) {
 

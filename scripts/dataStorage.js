@@ -1,6 +1,3 @@
-// Initialize Firebase
-//firebase.initializeApp(firebaseConfig);
-
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // User logged in already or has just logged in.
@@ -16,4 +13,3 @@ function writeLocation(resJson) {
     //firebase.database().set
     firebase.database().ref('users/' + userId).child("landmarks").set(resJson);
 }
-//writeLocation(Response.resJson)
