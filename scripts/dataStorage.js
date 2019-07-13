@@ -13,3 +13,31 @@ function writeLocation(resJson) {
     //firebase.database().set
     firebase.database().ref('users/' + userId).child("landmarks").set(resJson);
 }
+
+/*
+function getAllLandmarks() {
+    const userId = firebase.auth().currentUser.uid;
+
+    firebase.database().ref('users/' + userId).child("landmarks").then(function (snapshot) {
+        console.log(snapshot.val);
+
+    });
+}*/
+
+
+function getAllLandmarks() {
+    var landmarks = [
+        {
+            description: "Big Ben",
+            lat: 51.500782,
+            long: -0.12462600000000001
+        },
+        {
+            description: "Taj Mahal",
+            lat: 27.174698469698683,
+            long: 78.042073
+        }
+    ]
+
+    return landmarks
+}

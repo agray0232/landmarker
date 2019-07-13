@@ -29,11 +29,8 @@ function testFunction() {
                 var text = xhr.responseText;
                 var resJson = JSON.parse(text);
                 writeLocation(resJson);
+                plotLandmarks(getAllLandmarks())
                 console.log(resJson);
-                var name = resJson.landmark;
-                var lat = resJson.lat;
-                var lng = resJson.long;
-                addPin(name, lat, lng);
             };
 
             xhr.onerror = function () {
