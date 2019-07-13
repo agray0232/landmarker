@@ -3,6 +3,9 @@
 
 <head>
     <title>Landmarks</title>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -15,6 +18,8 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <script src="scripts/index.js" defer></script>
+    <script src="scripts/navBar.js" defer></script>
+    <script src="scripts/firebase.js"></script>
     <!-- <script src="scripts/login.js"></script> -->
 </head>
 
@@ -46,7 +51,7 @@
                 </ul>
             </div>
             <div id="firebaseui-auth-container">
-                <button id="LoginBtn" class="btn-primary">Login</button>
+                <button id="LoginBtn" class="btn btn-primary">Login</button>
             </div>
 
         </nav>
@@ -60,7 +65,9 @@
                         Upload photos from trips you've been on to see what landmarks you've been to and
                         where they are on the map!
                     </p>
-                    <button class="btn btn-primary main-body-button">Get Started</button>
+                    <button class="btn btn-primary main-body-button"
+                        onclick="window.location.href='pages/addTrip.html'">Get
+                        Started</button>
                 </div>
                 <div class="homepage-media col-5">
                     <img id="main-image" src="images/main-body-image.png" alt="Italian Trulli">
@@ -150,12 +157,8 @@
             <a href="https://github.com/agray0232/landmarks"> Landmarks Co</a>
         </div>
     </footer>
-    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+
     <script src="scripts/login.js"></script>
-
-
 </body>
 
 </html>

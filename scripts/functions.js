@@ -1,6 +1,5 @@
 function getBase64(file) {
     var reader = new FileReader();
-
     return new Promise(function (resolve, reject) {
         reader.readAsDataURL(file);
         reader.onerror = function (error) {
@@ -14,26 +13,21 @@ function getBase64(file) {
 }
 
 function testFunction() {
-
     var file = document.querySelector('#image').files[0];
 
     getBase64(file).then((base64img) => {
         var xhr = createCORSRequest('POST', "https://us-central1-landmarks-959fd.cloudfunctions.net/findLandmarks");
         if (!xhr) {
             throw new Error('CORS not supported');
-        }
-        else {
-            console.log('CORs is supported');
+        } else {
 
             // Response handlers.
             xhr.onload = function () {
                 var text = xhr.responseText;
                 var resJson = JSON.parse(text);
+                updateDatabase(resJson);
+                updateMap();
                 console.log(resJson);
-                var name = resJson.landmark;
-                var lat = resJson.lat;
-                var lng = resJson.long;
-                addPin(name, lat, lng);
             };
 
             xhr.onerror = function () {
