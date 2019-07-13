@@ -14,17 +14,16 @@ function writeLocation(resJson) {
     firebase.database().ref('users/' + userId).child("landmarks").set(resJson);
 }
 
-/*
+
 function getAllLandmarks() {
-    const userId = firebase.auth().currentUser.uid;
-
-    firebase.database().ref('users/' + userId).child("landmarks").then(function (snapshot) {
-        console.log(snapshot.val);
-
+    var userId = firebase.auth().currentUser.uid;
+    return firebase.database().ref('users/' + userId).once('value').then(function (snapshot) {
+        console.log(JSON.stringify(snapshot));
+        return snapshot;
     });
-}*/
+}
 
-
+/*
 function getAllLandmarks() {
     var landmarks = [
         {
@@ -40,4 +39,4 @@ function getAllLandmarks() {
     ]
 
     return landmarks
-}
+}*/

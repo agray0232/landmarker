@@ -96,6 +96,7 @@ window.initMap = function () {
 }
 
 function plotLandmarks(landmarks) {
+  console.log(JSON.stringify(landmarks));
   landmarks.forEach(function (landmark) {
     if (!mapContains(landmark)) {
       console.log("getting here");
