@@ -1,3 +1,6 @@
+// Initialize Firebase
+//firebase.initializeApp(firebaseConfig);
+
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // User logged in already or has just logged in.
@@ -8,7 +11,9 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 function writeLocation(resJson) {
+    console.log("Writing response to firebase");
     const userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('users/' + userId).map(resJson);
+    //firebase.database().set
+    firebase.database().ref('users/' + userId).child("landmarks").set(resJson);
 }
-writeLocation(Response.resJson)
+//writeLocation(Response.resJson)

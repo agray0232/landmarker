@@ -1,13 +1,13 @@
 function getBase64(file) {
     var reader = new FileReader();
 
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         reader.readAsDataURL(file);
-        reader.onerror = function(error) {
+        reader.onerror = function (error) {
             console.log('Error: ', error);
             reject(error);
         };
-        reader.onload = function() {
+        reader.onload = function () {
             resolve(reader.result);
         };
     })
@@ -25,9 +25,10 @@ function testFunction() {
             console.log('CORs is supported');
 
             // Response handlers.
-            xhr.onload = function() {
+            xhr.onload = function () {
                 var text = xhr.responseText;
                 var resJson = JSON.parse(text);
+                writeLocation(resJson);
                 console.log(resJson);
                 var name = resJson.landmark;
                 var lat = resJson.lat;
@@ -35,7 +36,7 @@ function testFunction() {
                 addPin(name, lat, lng);
             };
 
-            xhr.onerror = function() {
+            xhr.onerror = function () {
                 alert('Woops, there was an error making the request.');
             };
 
