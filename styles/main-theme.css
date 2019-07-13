@@ -21,6 +21,11 @@
     padding-bottom: 10px; 
 }
 
+.firebaseui-container.mdl-card {
+   overflow: visible;
+   margin-top: 300px;
+}
+
 /* Styling for nav bar */
 .navbar {
     height:60px;
