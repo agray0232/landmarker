@@ -13,36 +13,42 @@ function getBase64(file) {
 }
 
 function testFunction() {
-    var file = document.querySelector('#image').files[0];
 
-    getBase64(file).then((base64img) => {
-        var xhr = createCORSRequest('POST', "https://us-central1-landmarks-959fd.cloudfunctions.net/findLandmarks");
-        if (!xhr) {
-            throw new Error('CORS not supported');
-        } else {
+    if (document.querySelector('#image').files.length > 0) {
+        var file = document.querySelector('#image').files[0];
 
-            // Response handlers.
-            xhr.onload = function () {
-                var text = xhr.responseText;
-                var resJson = JSON.parse(text);
-                updateDatabase(resJson);
-                updateMap();
-                console.log(resJson);
-            };
+        getBase64(file).then((base64img) => {
+            var xhr = createCORSRequest('POST', "https://us-central1-landmarks-959fd.cloudfunctions.net/findLandmarks");
+            if (!xhr) {
+                throw new Error('CORS not supported');
+            } else {
 
-            xhr.onerror = function () {
-                alert('Woops, there was an error making the request.');
-            };
+                // Response handlers.
+                xhr.onload = function () {
+                    var text = xhr.responseText;
+                    var resJson = JSON.parse(text);
+                    updateDatabase(resJson);
+                    updateMap();
+                    console.log(resJson);
+                };
 
-            xhr.setRequestHeader('content-type', 'application/json');
+                xhr.onerror = function () {
+                    alert('Woops, there was an error making the request.');
+                };
 
-            var data = {
-                "image": base64img.split(',')[1]
+                xhr.setRequestHeader('content-type', 'application/json');
+
+                var data = {
+                    "image": base64img.split(',')[1]
+                }
+
+                xhr.send(JSON.stringify(data));
             }
-
-            xhr.send(JSON.stringify(data));
-        }
-    });
+        });
+    }
+    else {
+        alert("No photo selected");
+    }
 }
 
 function createCORSRequest(method, url, data) {

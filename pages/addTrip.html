@@ -47,10 +47,10 @@
     </header>
     <main>
         <div class="main-content-wrapper">
-            <div class="jumbotron jumbotron-fluid main-theme">
-                <div class="container">
-                    <h1 class="main-title">Map</h1>
-                    <p class="lead">Take a look at your landmarks.</p>
+            <div class=" jumbotron jumbotron-fluid main-theme">
+                <div class="container trip-main-title-wrapper">
+                    <h1 class="main-title">Your Trips</h1>
+                    <p class="lead">Upload your photos and view landmarks on the map</p>
                 </div>
             </div>
             <div class="map-container">
@@ -61,23 +61,23 @@
                     </div>
                 </div>
             </div>
-            <div class="form-container">
-                <div class="form">
-                    <h3>Add New trip here!</h3>
-                    <div class="file-upload-wrapper">
-                        <form class="md-form">
-                            <div class="file-field">
-                                <section>
-                                    <input type="file" name="image" id="image">
-                                    <div id="FunctionTester">
-                                        <button class="js-upload btn btn-primary">Test Functions</button>
-                                    </div>
-                                </section>
-                            </div>
-                        </form>
-                    </div>
+            <section class="image-upload-wrapper row justify-content-around">
+                <div class="image-upload-title">
+                    <h3>Upload a photo</h3>
                 </div>
-            </div>
+                <div class="image-upload-form text-center">
+                    <form class="md-form">
+                        <div class="file-field">
+                            <div>
+                                <input type="file" name="image" id="image">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="image-upload-button">
+                    <button class="js-upload btn btn-primary">Find Landmarks</button>
+                </div>
+            </section>
         </div>
     </main>
     <!-- Footer -->

@@ -26,3 +26,19 @@
 .card-text{
     color:#4c4c4c;
 }
+
+.about-card-title{
+    font-size:20px;
+    text-align:center;
+    color:black; 
+}
+
+.card-text{
+    text-align:center;
+}
+
+.card-img-top{}
+
+.about-card{
+    min-height: 630px;
+}
