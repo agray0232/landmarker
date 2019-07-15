@@ -1,12 +1,18 @@
+var map = null;
+var markers = [];
+
 $(document).ready(function () {
   $('.js-upload').on('click', (e) => {
     e.preventDefault();
-    testFunction();
   })
 });
 
-var map = null;
-var markers = [];
+function initialize() {
+  var firebasePromise = initializeFirebase();
+  firebasePromise.then(() => {
+    updateMap();
+  });
+}
 
 window.initMap = function () {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -95,6 +101,8 @@ window.initMap = function () {
   });
 }
 
+initialize();
+
 function updateMap() {
   var landmarksPromise = getCurrentUserData();
   landmarksPromise.then(function (snapshot) {
@@ -120,7 +128,6 @@ function mapContains(landmark) {
   return contains;
 }
 
-//Need to map markers through firestore
 function addPin(name, lat, lng) {
   var marker = new google.maps.Marker({
     position: {
