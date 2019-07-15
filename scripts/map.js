@@ -106,14 +106,15 @@ initialize();
 function updateMap() {
   var landmarksPromise = getCurrentUserData();
   landmarksPromise.then(function (snapshot) {
-
     var stringSnapshot = JSON.stringify(snapshot);
-    var objectSnapshot = JSON.parse(stringSnapshot);
-    var landmarks = objectSnapshot.landmarks;
-    for (var landmarkIndex in landmarks) {
-      var landmark = landmarks[landmarkIndex];
-      if (!mapContains(landmark)) {
-        addPin(landmark.description, landmark.lat, landmark.long)
+    if (stringSnapshot !== "null") {
+      var objectSnapshot = JSON.parse(stringSnapshot);
+      var landmarks = objectSnapshot.landmarks;
+      for (var landmarkIndex in landmarks) {
+        var landmark = landmarks[landmarkIndex];
+        if (!mapContains(landmark)) {
+          addPin(landmark.description, landmark.lat, landmark.long)
+        }
       }
     }
   })
