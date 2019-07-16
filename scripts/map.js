@@ -4,6 +4,7 @@ var markers = [];
 $(document).ready(function () {
   $('.js-upload').on('click', (e) => {
     e.preventDefault();
+    testFunction();
   })
 });
 
