@@ -10,3 +10,9 @@ $(window).scroll(function (e) {
     }
 
 });
+
+function initialize() {
+    firebasePromise = initializeFirebase();
+}
+
+initialize();
