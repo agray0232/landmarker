@@ -2,7 +2,11 @@
 <html lang="en">
 
 <head>
+    <title>About Us</title>
     <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,8 +14,11 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles/main-theme.css" />
     <link rel="stylesheet" href="../styles/about.css" />
-    <script src="../scripts/navBar.js"></script>
-    <title>About Us</title>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="../scripts/navBar.js" defer></script>
+    <script src="../scripts/authentication.js"></script>
+    <script src="../scripts/index.js" defer></script>
 </head>
 
 <body class="main-theme">
@@ -41,9 +48,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- <div id="LoginButton"> -->
-            <!-- <button class="btn btn-primary">Login</button> -->
-            <!-- </div> -->
+            <div id="firebaseui-auth-container"></div>
         </nav>
     </header>
     <main>

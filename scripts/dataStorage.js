@@ -1,5 +1,3 @@
-
-
 function updateDatabase(resJson) {
     const userId = firebase.auth().currentUser.uid;
     resJson.forEach(function (landmark) {

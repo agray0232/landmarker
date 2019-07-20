@@ -1,18 +1,29 @@
-// scroll functions
-$(window).scroll(function (e) {
-
-    // add/remove class to navbar when scrolling to hide/show
-    var scroll = $(window).scrollTop();
-    if (scroll >= 150) {
-        $('.navbar').addClass("navbar-hide");
-    } else {
-        $('.navbar').removeClass("navbar-hide");
-    }
-
-});
+initialize();
 
 function initialize() {
-    firebasePromise = initializeFirebase();
+    firebasePromise = initializeFirebase()
+        .then(function () {
+            renderLoginButton();
+            addEventListeners();
+        });
 }
 
-initialize();
+function addEventListeners() {
+    var loginElements = document.getElementsByClassName("btn-login");
+    var logoutElements = document.getElementsByClassName("btn-logout");
+
+    for (i = 0; i < loginElements.length; i++) {
+        loginElements[i].addEventListener('click', function (e) {
+            e.preventDefault;
+            loginEventListener();
+        });
+    }
+
+    for (i = 0; i < logoutElements.length; i++) {
+        logoutElements[i].addEventListener('click', function (e) {
+            e.preventDefault;
+            logoutEventListener();
+        });
+    }
+}
+
