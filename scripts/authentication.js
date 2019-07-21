@@ -31,26 +31,23 @@ function initializeFirebase() {
     return promise;
 }
 
-function addLoginEventListener() {
-    document.getElementById('LoginBtn').addEventListener('click', function (e) {
-        e.preventDefault()
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    return true;
-                },
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: window.location.pathname,
-            signInOptions: [{
-                provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                requireDisplayName: false
-            }],
-        };
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        ui.start('#firebaseui-auth-container', uiConfig);
-    })
+function addAuthEventListeners() {
+    var loginElements = document.getElementsByClassName("btn-login");
+    var logoutElements = document.getElementsByClassName("btn-logout");
+
+    for (i = 0; i < loginElements.length; i++) {
+        loginElements[i].addEventListener('click', function (e) {
+            e.preventDefault;
+            loginEventListener();
+        });
+    }
+
+    for (i = 0; i < logoutElements.length; i++) {
+        logoutElements[i].addEventListener('click', function (e) {
+            e.preventDefault;
+            logoutEventListener();
+        });
+    }
 }
 
 function loginEventListener() {

@@ -3,7 +3,7 @@ $(window).scroll(function (e) {
 
     // add/remove class to navbar when scrolling to hide/show
     var scroll = $(window).scrollTop();
-    if (scroll >= 150) {
+    if (scroll >= 100) {
         $('.navbar').addClass("navbar-hide");
     } else {
         $('.navbar').removeClass("navbar-hide");
@@ -12,15 +12,12 @@ $(window).scroll(function (e) {
 });
 
 function renderLoginButton() {
-    console.log("Rendering login button");
     var loginButtonContainer = document.getElementById("firebaseui-auth-container");
     var loginButtonHTML = getLoginButtonHTML();
     loginButtonContainer.innerHTML = loginButtonHTML;
 }
 
 function getLoginButtonHTML() {
-    var html = ``;
-
     var btnClass = "";
     var btnText = "";
 
@@ -33,9 +30,5 @@ function getLoginButtonHTML() {
         btnText = "Login";
     }
 
-    html = `
-        <button id="LoginBtn" class="btn btn-primary ${btnClass}">${btnText}</button>
-    `
-
-    return html
+    return `<button id="LoginBtn" class="btn btn-primary ${btnClass}">${btnText}</button>`
 }
