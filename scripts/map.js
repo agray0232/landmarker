@@ -58,7 +58,8 @@ function initializeMap() {
 }
 
 /**
- * Updates the map by either 
+ * Updates the map by either adding data from a user's firebase storage
+ * or clears the map if no user is logged in. 
  */
 function updateMap() {
   if (isUserLoggedIn()) {
@@ -72,6 +73,11 @@ function updateMap() {
   }
 }
 
+/**
+ * Adds any new, unique, pins to the map from a snapshot of a user's firebase data
+ * 
+ * @param snapshot - A snapshot of a user's firebase data
+ */
 function addDataFromSnapshot(snapshot) {
   var stringSnapshot = JSON.stringify(snapshot);
   if (stringSnapshot !== "null") {
@@ -86,6 +92,9 @@ function addDataFromSnapshot(snapshot) {
   }
 }
 
+/**
+ * Removes all pins from the map and resets the markers array
+ */
 function clearMap() {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(null);
@@ -93,6 +102,12 @@ function clearMap() {
   markers = [];
 }
 
+/**
+ * Checks if the map contains a landmark with the same description
+ * 
+ * @param landmark - Landmark JSON object from firebase data
+ * @returns Boolean: TRUE if the map contains a landmark with the same description; FALSE if it doesn't.
+ */
 function mapContains(landmark) {
   var contains = false;
 
@@ -102,6 +117,13 @@ function mapContains(landmark) {
   return contains;
 }
 
+/**
+ * Creates a Marker on the map with the given name, latitue, and longitude
+ * 
+ * @param name - Description of the pin
+ * @param lat - Latitude in degrees
+ * @param lng - Longitude in degrees
+ */
 function addPin(name, lat, lng) {
   var marker = new google.maps.Marker({
     position: {

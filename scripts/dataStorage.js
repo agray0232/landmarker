@@ -1,3 +1,8 @@
+/**
+ * Adds the provided JSON object to the Firebase Storage
+ * 
+ * @param resJson - JSON object received in a cloud function response
+ */
 function updateDatabase(resJson) {
     const userId = firebase.auth().currentUser.uid;
     resJson.forEach(function (landmark) {
@@ -8,6 +13,11 @@ function updateDatabase(resJson) {
     })
 }
 
+/**
+ * Get's a JSON snapshot the current users data from the Firebase Storage
+ * 
+ * @returns A promise that will resolve with a snapshot
+ */
 function getCurrentUserData() {
     var promise = new Promise(function (resolve, reject) {
 

@@ -1,5 +1,14 @@
+/**
+ * Keeps track of whether or not a user is logged in. Used in the case that the current user
+ * returns null when in fact a user is logged in (an artifact of asynchronicity)
+ */
 var userLoggedIn = false;
 
+/**
+ * Initializes the Firebase Application. 
+ * 
+ * @returns Intitialization promise that will resolve once the authentication process is complete
+ */
 function initializeFirebase() {
     var promise = new Promise(function (resolve, reject) {
 
@@ -31,6 +40,12 @@ function initializeFirebase() {
     return promise;
 }
 
+/**
+ * Adds event listeners to any elements that are of the "btn-login" or "btn-logout" classes.
+ * 
+ * btn-login: loginEventListener
+ * btn-logout: logoutEventListener
+ */
 function addAuthEventListeners() {
     var loginElements = document.getElementsByClassName("btn-login");
     var logoutElements = document.getElementsByClassName("btn-logout");
@@ -44,6 +59,9 @@ function addAuthEventListeners() {
     }
 }
 
+/**
+ * Event listener that opens the Firebase login prompt
+ */
 function loginEventListener() {
     var uiConfig = {
         callbacks: {
@@ -63,6 +81,11 @@ function loginEventListener() {
     ui.start('#firebaseui-auth-container', uiConfig);
 }
 
+/**
+ * Event listener that logs a user out of the Firebase Application 
+ * 
+ * @returns Logout promise that will resolve once the logout process is complete
+ */
 function logoutEventListener() {
     var logoutPromise = new Promise(function (resolve, reject) {
         firebase.auth().signOut()
@@ -78,6 +101,11 @@ function logoutEventListener() {
     return logoutPromise;
 }
 
+/**
+ * Checks if a user is currently logged in
+ * 
+ * @returns Boolean: TRUE if a user is logged in, FALSE if is user is not logged in
+ */
 function isUserLoggedIn() {
     var loggedIn = false;
 

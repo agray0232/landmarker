@@ -1,3 +1,9 @@
+/**
+ * Returns a Base64 string representation of an image contained in the file location
+ * 
+ * @param file - File path to an image on a users computer
+ * @returns A promise that will resolve with Base64 string data
+ */
 function getBase64(file) {
     var reader = new FileReader();
     return new Promise(function (resolve, reject) {
@@ -12,6 +18,11 @@ function getBase64(file) {
     })
 }
 
+/**
+ * Creates a request to the "findLandmarks" cloud function for an image selected by a user. Once 
+ * a response from the cloud function is received, the Firebase storage is updated and the google
+ * map API is updated.
+ */
 function cloudFindLandmarks() {
 
     if (document.querySelector('#image').files.length > 0) {
@@ -51,6 +62,13 @@ function cloudFindLandmarks() {
     }
 }
 
+/**
+ * Creates a Cross-Origin Resource Sharing (CORS) request given a method type, url, and data
+ * 
+ * @param  method - The REST method type (ie: POST, GET, etc)
+ * @param  url - The URL to send the request
+ * @param  data - Currently unused
+ */
 function createCORSRequest(method, url, data) {
     var xhr = new XMLHttpRequest();
     if ("withCredentials" in xhr) {
