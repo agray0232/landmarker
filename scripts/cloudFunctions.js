@@ -12,7 +12,7 @@ function getBase64(file) {
     })
 }
 
-function testFunction() {
+function cloudFindLandmarks() {
 
     if (document.querySelector('#image').files.length > 0) {
         var file = document.querySelector('#image').files[0];

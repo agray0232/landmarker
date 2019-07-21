@@ -36,17 +36,11 @@ function addAuthEventListeners() {
     var logoutElements = document.getElementsByClassName("btn-logout");
 
     for (i = 0; i < loginElements.length; i++) {
-        loginElements[i].addEventListener('click', function (e) {
-            e.preventDefault;
-            loginEventListener();
-        });
+        loginElements[i].addEventListener('click', loginEventListener);
     }
 
     for (i = 0; i < logoutElements.length; i++) {
-        logoutElements[i].addEventListener('click', function (e) {
-            e.preventDefault;
-            logoutEventListener();
-        });
+        logoutElements[i].addEventListener('click', logoutEventListener);
     }
 }
 
@@ -74,8 +68,7 @@ function logoutEventListener() {
         firebase.auth().signOut()
             .then(function () {
                 userLoggedIn = false;
-                renderLoginButton();
-                addEventListeners();
+                updatePage();
                 resolve();
             })
             .catch(function (error) {
